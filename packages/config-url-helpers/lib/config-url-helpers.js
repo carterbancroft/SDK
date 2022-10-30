@@ -66,8 +66,17 @@ function getAdminUrl() {
     return adminUrl;
 }
 
+function getWebSocketUrl() {
+    let siteUrl = this.getSiteUrl();
+
+    const webSocketUrl = siteUrl.replace(/^https?/, 'ws')
+
+    return webSocketUrl;
+}
+
 module.exports = {
     getSubdir,
     getSiteUrl,
-    getAdminUrl
+    getAdminUrl,
+    getWebSocketUrl
 };

@@ -38,6 +38,7 @@ module.exports = class UrlUtils {
         this.getSubdir = options.getSubdir;
         this.getSiteUrl = options.getSiteUrl;
         this.getAdminUrl = options.getAdminUrl;
+        this.getWebSocketUrl = options.getWebSocketUrl;
     }
 
     getProtectedSlugs() {
@@ -193,6 +194,14 @@ module.exports = class UrlUtils {
             } else {
                 urlPath = apiPath;
             }
+        } else if (context === 'web-socket') {
+            let webSocketUrl = this.getWebSocketUrl()
+
+            if (!webSocketUrl.endsWith('/')) {
+                webSocketUrl += '/';
+            }
+
+            urlPath = webSocketUrl;
         } else if (_.isString(context) && _.indexOf(_.keys(knownPaths), context) !== -1) {
             // trying to create a url for a named path
             urlPath = knownPaths[context];
