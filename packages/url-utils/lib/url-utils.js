@@ -195,7 +195,7 @@ module.exports = class UrlUtils {
                 urlPath = apiPath;
             }
         } else if (context === 'web-socket') {
-            let webSocketUrl = this.getWebSocketUrl()
+            let webSocketUrl = this.getWebSocketUrl();
 
             if (!webSocketUrl.endsWith('/')) {
                 webSocketUrl += '/';
