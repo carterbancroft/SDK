@@ -48,6 +48,7 @@ describe('UrlUtils', function () {
             getSubdir: nconf.getSubdir,
             getSiteUrl: nconf.getSiteUrl,
             getAdminUrl: nconf.getAdminUrl,
+            getWebSocketUrl: nconf.getWebSocketUrl,
             apiVersions: {},
             slugs: ['ghost', 'rss', 'amp'],
             redirectCacheMaxAge: constants.ONE_YEAR_S,
@@ -429,6 +430,24 @@ describe('UrlUtils', function () {
                     .urlFor('api', {}, true)
                     .should.eql('https://my-ghost-blog.com/ghost/api/content/');
             });
+        });
+    });
+
+    describe('webSocket', function () {
+        it('should return websocket url when requested', function () {
+            fakeConfig.url = 'http://my-ghost-blog.com/';
+
+            utils
+                .urlFor('web-socket')
+                .should.eql('ws://my-ghost-blog.com/');
+        });
+
+        it('should add a trailing slash', function () {
+            fakeConfig.url = 'http://my-ghost-blog.com';
+
+            utils
+                .urlFor('web-socket')
+                .should.eql('ws://my-ghost-blog.com/');
         });
     });
 
