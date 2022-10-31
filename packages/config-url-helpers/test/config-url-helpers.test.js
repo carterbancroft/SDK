@@ -75,7 +75,7 @@ describe('Config URL Helpers', function () {
     });
 
     describe('getAdminUrl', function () {
-        it('returns undefinied if no admin URL is set', function () {
+        it('returns undefined if no admin URL is set', function () {
             should.not.exist(nconf.getAdminUrl());
         });
 
@@ -110,6 +110,20 @@ describe('Config URL Helpers', function () {
             fakeConfig.adminUrl = 'http://admin.example.com/blog';
 
             nconf.getAdminUrl().should.eql('http://admin.example.com/blog/');
+        });
+    });
+
+    describe('getWebSocketUrl', function () {
+        it('returns config url with a websocket protocol', function () {
+            fakeConfig.url = 'http://example.com/';
+
+            nconf.getWebSocketUrl().should.eql('ws://example.com/');
+        });
+
+        it('returns the correct url with an https config url', function () {
+            fakeConfig.url = 'https://example.com/';
+
+            nconf.getWebSocketUrl().should.eql('ws://example.com/');
         });
     });
 });

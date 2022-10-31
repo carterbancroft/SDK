@@ -69,7 +69,7 @@ function getAdminUrl() {
 function getWebSocketUrl() {
     let siteUrl = this.getSiteUrl();
 
-    const webSocketUrl = siteUrl.replace(/^https?/, 'ws')
+    const webSocketUrl = siteUrl.replace(/^https?/, 'ws');
 
     return webSocketUrl;
 }
