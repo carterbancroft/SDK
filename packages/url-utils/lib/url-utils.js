@@ -195,6 +195,9 @@ module.exports = class UrlUtils {
                 urlPath = apiPath;
             }
         } else if (context === 'web-socket') {
+            // Note that this doesn't currently use the `absolute` param. It just always returns the
+            // full path and protocol... which may be confusing since the other conditionals here do
+            // use it.
             let webSocketUrl = this.getWebSocketUrl();
 
             if (!webSocketUrl.endsWith('/')) {

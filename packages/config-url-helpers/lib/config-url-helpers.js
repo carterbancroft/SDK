@@ -67,6 +67,8 @@ function getAdminUrl() {
 }
 
 function getWebSocketUrl() {
+    // Note that this is using the same URL as the site URL. I think it's right and it's how I'm working locally
+    // but I'm a little unclear on if this is a safe assumption.
     let siteUrl = this.getSiteUrl();
 
     const webSocketUrl = siteUrl.replace(/^https?/, 'ws');
