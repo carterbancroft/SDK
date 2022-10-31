@@ -22,10 +22,8 @@
     "eslint": "8.26.0",
     "eslint-plugin-ghost": "2.16.0",
     "eslint-plugin-react": "7.31.10",
-    "lerna": "^6.0.1",
     "mocha": "10.1.0",
     "should": "13.2.3",
     "sinon": "14.0.1"
-  },
-  "name": "SDK"
+  }
 }

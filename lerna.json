@@ -1,15 +1,11 @@
 {
     "version": "independent",
     "npmClient": "yarn",
-    "packages": [
-        "packages/*"
-    ],
+    "packages": ["packages/*"],
     "useWorkspaces": true,
     "command": {
         "publish": {
-            "allowBranch": [
-                "main"
-            ],
+            "allowBranch": ["main"],
             "message": "Published new versions"
         }
     },
@@ -17,6 +13,5 @@
         "public": "true",
         "repo": "https://github.com/TryGhost/SDK",
         "scope": "@tryghost"
-    },
-    "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+    }
 }
